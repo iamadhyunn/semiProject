@@ -13,6 +13,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<%@include file="/header.jsp" %>
 <h2>스터디 그룹 개설 신청</h2>
 <article>
 	<section>
@@ -58,5 +59,6 @@
 		</form>
 	</section>
 </article>
+<%@include file="/footer.jsp" %>
 </body>
 </html>

@@ -16,6 +16,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<%@include file="/header.jsp" %>
 <section>
 <article>
 <h2>스터디상세정보</h2>
@@ -29,5 +30,6 @@
 <span>(학생수)<%=dto.getStd_limit() %></span>
 </article>
 </section>
+<%@include file="/footer.jsp" %>
 </body>
 </html>

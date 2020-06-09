@@ -88,7 +88,6 @@ MemInfoDTO mdto = (MemInfoDTO)session.getAttribute((String)session.getAttribute(
 
 
 </section>
-
 <%@include file="/footer.jsp" %>
 </body>
 </html>

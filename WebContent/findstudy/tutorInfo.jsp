@@ -22,6 +22,8 @@ table{margin:0 auto; }
 </style>
 </head>
 <body>
+<%@include file="/header.jsp" %>
+
 	<%
 	int midx=mdto.getMidx();
 	TutorDTO tdto=tdao.tutorInfo(midx);
@@ -86,5 +88,6 @@ table{margin:0 auto; }
       </table>
    </article>
    </section>
+   <%@include file="/footer.jsp" %>
 </body>
 </html>

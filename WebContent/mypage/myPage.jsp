@@ -14,6 +14,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<%@include file="/header.jsp" %>
    <h2>My Page</h2>
    <section>
    <article>
@@ -103,5 +104,6 @@
       </fieldset>
    </article>
    </section>
+   <%@include file="/footer.jsp" %>
 </body>
 </html>

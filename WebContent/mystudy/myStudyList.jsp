@@ -12,9 +12,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<header>
+<%@include file="/header.jsp" %>
 
-</header>
 <section>
 	<h2>참여중인스터디목록~</h2>
 	<fieldset>
@@ -46,5 +45,6 @@
 
 	</fieldset>
 	</section>
+	<%@include file="/footer.jsp" %>
 </body>
 </html>

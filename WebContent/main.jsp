@@ -8,8 +8,10 @@
 <title>Insert title here</title>
 </head>
 <body>
+<%@include file="/header.jsp" %>
 <a href="/semi/mypage/myPage.jsp">마이페이지</a>
 <a href="/semi/findstudy/tutorList.jsp">튜터찾기</a>
 <a href="/semi/mystudy/myStudyList.jsp">내 스터디룸</a>
+<%@include file="/footer.jsp" %>
 </body>
 </html>
