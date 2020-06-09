@@ -12,5 +12,5 @@ System.out.println(std_limit); */
 %>
 <script>
 	window.alert('<%=msg%>');
-	location.href='../main.jsp';
+	location.href='../main_tutor.jsp';
 </script>

@@ -8,7 +8,7 @@
 </head>
 <body>
 <%@include file="/header.jsp" %>
-tutor페이지
+<a href="makeStudy_Tutor/makeStudy.jsp">스터디만들기</a>
 <%@include file="/footer.jsp" %>
 </body>
 </html>

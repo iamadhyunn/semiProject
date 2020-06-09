@@ -17,7 +17,7 @@
 <h2>스터디 그룹 개설 신청</h2>
 <article>
 	<section>
-		<form name="stdApplication" action="stdApplication_ok.jsp">
+		<form name="makeStudy" action="makeStudy_ok.jsp">
 		<fieldset>
 		<legend>스터디 그룹 신청</legend>
 		<input type="hidden" value="<%=midx %>" name="midx">
