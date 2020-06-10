@@ -5,7 +5,7 @@ import java.util.*;
 import semi.meminfo.*;
 public class TutorDAO {
    
-   Connection conn;
+   Connection conn; 
    PreparedStatement ps; 
    ResultSet rs; 
    
