@@ -12,15 +12,15 @@ public class TutorDAO {
    public TutorDAO() {
       
    }
-   
-   /**ф╘ем ╦╝╫╨ф╝ ╧ч╬ф©ю╠Б*/
+   //М∙≤Л²╢
+   /**ф╘О©╫О©╫ О©╫О©╫О©╫О©╫ф╝ О©╫ч╬ф©О©╫О©╫О©╫*/
    //yong
    public ArrayList<TutorDTO> tutorList(String addr){
 	      try {
 	         conn = semi.db.SemiDB.getCon();
 	         String sql = "select * from tutor where tshots>0 ";
 	         
-	         if(addr.equals("юЭц╪╨╦╠Б")||addr.equals("")) {
+	         if(addr.equals("О©╫О©╫ц╪О©╫О©╫О©╫О©╫")||addr.equals("")) {
 	            ps = conn.prepareStatement(sql);
 	         }else {
 	            sql+=" and maddr=?";
@@ -79,7 +79,7 @@ public class TutorDAO {
 			return dto;
 		} catch (Exception e) {
 			e.printStackTrace();
-			System.out.println("©║╥╞ 1");
+			System.out.println("О©╫О©╫О©╫О©╫ 1");
 			return null;
 		}finally {
 			try {
@@ -91,7 +91,7 @@ public class TutorDAO {
 			}
 		}
    		}
-   /**ф╘ем ╟║ют yong*/
+   /**ф╘О©╫О©╫ О©╫О©╫О©╫О©╫ yong*/
    public int tutorJoin(MemInfoDTO dto,String addr) {
       try {
          conn = semi.db.SemiDB.getCon(); 
