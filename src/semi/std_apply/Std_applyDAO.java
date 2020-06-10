@@ -14,8 +14,6 @@ public class Std_applyDAO {
    public Std_applyDAO() {
       
    }
-   
-   
    /**스터디 신청서리스트 관련 메서드*/   
    public ArrayList<Std_applyDTO> applyList(int sidx) {
       try {

@@ -9,10 +9,11 @@ public class Study_grDAO {
 	private ResultSet rs;
 	
 	//hyun
-	public ArrayList<Study_grDTO> myStudy(int midx_tmp){
+	//myStudyList.jsp 에서 참여중인 스터디 출력
+	public ArrayList<Study_grDTO> myStudyIng(int midx_tmp){
 	      try {
 	         conn=semi.db.SemiDB.getCon();
-	         String sql="select * from study_gr where midx=?";
+	         String sql="select * from study_gr where midx=? and stdgr_status=1";
 	         ps=conn.prepareStatement(sql);
 	         ps.setInt(1, midx_tmp);
 	         rs=ps.executeQuery();
@@ -46,10 +47,47 @@ public class Study_grDAO {
 	         } catch (Exception e2) {}
 	      }
 	   }
+	//mystudylist.jsp에서 대기중인 스터디 목록 추가
+	public ArrayList<Study_grDTO> myStudyPending(int midx_tmp){
+	      try {
+	         conn=semi.db.SemiDB.getCon();
+	         String sql="select * from study_gr where midx=? and stdgr_status=0";
+	         ps=conn.prepareStatement(sql);
+	         ps.setInt(1, midx_tmp);
+	         rs=ps.executeQuery();
+	         ArrayList<Study_grDTO> arr = new ArrayList<Study_grDTO>();
+	         while(rs.next()) {
+	            int midx=rs.getInt("midx");
+	            int sidx=rs.getInt("sidx");
+	            String stds=rs.getString("stds");
+	            String s_gr_name=rs.getString("s_gr_name");
+	            String sdate=rs.getString("sdate");
+	            String edate=rs.getString("edate");
+	            String sch_date=rs.getString("sch_date");
+	            String sch_time=rs.getString("sch_time");
+	            int stdgr_status=rs.getInt("stdgr_status");
+	            String scontent=rs.getString("scontent");
+	            String tutorname=rs.getString("tutorname");
+	            int std_limit=rs.getInt("std_limit");
 
+	            Study_grDTO dto = new Study_grDTO(midx, sidx, stds, s_gr_name, sdate, edate, sch_date, sch_time, stdgr_status, scontent, tutorname, std_limit);
+	            arr.add(dto);
+	         }
+	         return arr;
+	      } catch (Exception e) {
+	         e.printStackTrace();
+	         return null;
+	      }finally {
+	         try {
+	            if(rs!=null)rs.close();
+	            if(ps!=null)ps.close();
+	            if(conn!=null)conn.close();
+	         } catch (Exception e2) {}
+	      }
+	   }
 	//hyun
 	public Study_grDTO studyInfo(int sidx_tmp) {
-		try {
+		try { 
 			conn=semi.db.SemiDB.getCon();
 			String sql="select * from study_gr where sidx=?";
 			ps=conn.prepareStatement(sql);
@@ -149,4 +187,43 @@ public class Study_grDAO {
 		         } catch (Exception e2) {}
 		      }
 		   }
+		public ArrayList<Study_grDTO> stdJoinContent(int sidx){
+			try {
+				conn=semi.db.SemiDB.getCon();
+				String sql="select * from study_gr where sidx=?";
+				ps=conn.prepareStatement(sql);
+				ps.setInt(1, sidx);
+				rs=ps.executeQuery();
+				ArrayList<Study_grDTO> arr = new ArrayList<Study_grDTO>();
+				while(rs.next()) {
+					int midx=rs.getInt("midx");
+					String stds=rs.getString("stds");
+					String s_gr_name=rs.getString("s_gr_name");
+					String sdate=rs.getString("sdate");
+					String edate=rs.getString("edate");
+					String sch_date=rs.getString("sch_date");
+					String sch_time=rs.getString("sch_time");
+					int stdgr_status=rs.getInt("stdgr_status");
+					String scontent=rs.getString("scontent");
+					String tutorname=rs.getString("tutorname");
+					int std_limit=rs.getInt("std_limit");
+					
+				Study_grDTO dto=new Study_grDTO(midx, sidx, stds, s_gr_name, sdate, edate, sch_date, sch_time, stdgr_status, scontent, tutorname, std_limit);
+				arr.add(dto);
+				}
+				return arr;
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+				return null;
+			}finally {
+				try {
+		            if(rs!=null)rs.close();
+		            if(ps!=null)ps.close();
+		            if(conn!=null)conn.close();
+				} catch (Exception e2) {
+					// TODO: handle exception
+				}
+			}
+		}
 }
