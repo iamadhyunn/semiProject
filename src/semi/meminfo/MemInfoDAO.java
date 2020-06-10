@@ -186,4 +186,26 @@ public class MemInfoDAO {
 	              }
 	           }
 	      }
+	      //yong
+	      /**튜터 승인 완료되었을 때 메서드 */
+	      public int typeChange(int midx) {
+	         try {
+	            conn = semi.db.SemiDB.getCon();
+	            String sql = "update meminfo set mtype=1 where midx=?";
+	            ps = conn.prepareStatement(sql);
+	            ps.setInt(1, midx);
+	            int count = ps.executeUpdate();
+	            return count; 
+	            
+	         }catch(Exception e) {
+	            e.printStackTrace();
+	            return -1; 
+	         }finally {
+	            try {
+	               if(ps!=null)ps.close();
+	               if(conn!=null)conn.close();
+	            }catch(Exception e2) {}
+	         }
+	      }
+
 }

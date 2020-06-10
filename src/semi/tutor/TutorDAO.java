@@ -115,4 +115,47 @@ public class TutorDAO {
          }catch(Exception e2) {}
       }
    }
+   //yong
+   /**관리자가 튜터 승인을 했을 때 */
+   public int okTutor(int midx) {
+      try {
+         conn = semi.db.SemiDB.getCon();
+         String sql = "update tutor set tgrant=1 where midx=?";
+         ps = conn.prepareStatement(sql);
+         ps.setInt(1, midx);
+         int count = ps.executeUpdate();
+         return count; 
+         
+      }catch(Exception e) {
+         e.printStackTrace();
+         return -1; 
+      }finally {
+         try {
+            if(ps!=null)ps.close();
+            if(conn!=null)conn.close();
+         }catch(Exception e2) {}
+      }
+   }
+   //yong
+   /**관리자가 튜터 승인을 거절했을 때 */
+   public int negativeTutor(int midx) {
+      try {
+         conn = semi.db.SemiDB.getCon();
+         String sql = "delete from tutor where midx=?";
+         ps = conn.prepareStatement(sql);
+         ps.setInt(1, midx);
+         int count = ps.executeUpdate();
+         return count; 
+         
+      }catch(Exception e) {
+         e.printStackTrace();
+         return -1; 
+      }finally {
+         try {
+            if(ps!=null)ps.close();
+            if(conn!=null)conn.close();
+         }catch(Exception e2) {}
+      }
+   }
+
    }
