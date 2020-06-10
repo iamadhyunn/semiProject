@@ -2,13 +2,13 @@ package semi.meminfo;
 import java.util.*;
 import java.sql.*;
 import java.sql.Date;
-public class MemInfoDAO {
+public class MemInfoDAO { 
 
 	private Connection conn;
 	private PreparedStatement ps;
 	private ResultSet rs;
 	//hyun
-	//·Î±×ÀÎ ½Ã ¼¼¼Ç¿¡ dto´ã´Â ¸Ş¼­µå
+	//ë¡œê·¸ì¸ ì‹œ ì„¸ì…˜ì— dtoë‹´ëŠ” ë©”ì„œë“œ
 	public MemInfoDTO getMemDTO(String id) {
 		try {
 			conn=semi.db.SemiDB.getCon();
@@ -112,7 +112,7 @@ public class MemInfoDAO {
 	   }
 	   
 	   
-	   /**¾ÆÀÌµğ Áßº¹ Ã¼Å© °ü·Ã ¸Ş¼­µå */
+	   /**ì•„ì´ë”” ì¤‘ë³µ ì²´í¬ ê´€ë ¨ ë©”ì„œë“œ */
 	   //yong
 	   public int idCheck(String mid) {
 	      try {
@@ -139,7 +139,7 @@ public class MemInfoDAO {
 	      }
 	   }
 	   //hyun
-	   //Æ©ÅÍÀÎÁöÇĞ»ıÀÎÁö±¸ºĞ(·Î±×ÀÎÇÏ´Â¼ø°£)
+	   //íŠœí„°ì¸ì§€í•™ìƒì¸ì§€êµ¬ë¶„(ë¡œê·¸ì¸í•˜ëŠ”ìˆœê°„)
 	   public int getMemType(String id) {
 		   try {
 			conn=semi.db.SemiDB.getCon();
@@ -159,7 +159,7 @@ public class MemInfoDAO {
 			} catch (Exception e2) {}
 		}
 	   }
-	   /**¸¶ÀÌÆäÀÌÁö Á¤º¸ ¼öÁ¤ °ü·Ã ¸Ş¼­µå  yong*/ 
+	   /**ë§ˆì´í˜ì´ì§€ ì •ë³´ ìˆ˜ì • ê´€ë ¨ ë©”ì„œë“œ  yong*/ 
 	      public int updateMyInfo(MemInfoDTO dto) {
 	         try {
 	              conn = semi.db.SemiDB.getCon();
