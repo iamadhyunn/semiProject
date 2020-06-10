@@ -20,12 +20,18 @@ MemInfoDTO mdto=(MemInfoDTO)session.getAttribute((String)session.getAttribute("i
 h2{text-align: center}
 table{margin:0 auto; }
 </style>
+
+<script type="text/javascript">
+function joinStudy(sidx){
+	location.href='studyJoin.jsp?sidx='+sidx;
+}
+</script>
 </head>
 <body>
 <%@include file="/header.jsp" %>
 
 	<%
-	int midx=mdto.getMidx();
+	int midx=Integer.parseInt(request.getParameter("midx"));
 	TutorDTO tdto=tdao.tutorInfo(midx);
 	%>
    <header>
@@ -60,9 +66,10 @@ table{margin:0 auto; }
         	%>
          </tr>
       </table>
+      <form name="applyStudy" action="studyJoin.jsp">
       <table>
       		<%
-	         ArrayList<Study_grDTO> arr = sdao.myStudy(midx);
+	         ArrayList<Study_grDTO> arr = sdao.myStudyList(midx);
 				if(arr==null||arr.size()==0){
 					%>
 					<tr>
@@ -81,11 +88,14 @@ table{margin:0 auto; }
 							<td><%=temp.getSch_time() %></td>
 						</tr>
 						<tr>
+							<td><input type="button" value="가입하기" onclick="javascript:joinStudy('<%=temp.getSidx()%>')"></td>			
+						</tr>
 						<% 
 					}
 				}
       		%>
       </table>
+      </form>
    </article>
    </section>
    <%@include file="/footer.jsp" %>

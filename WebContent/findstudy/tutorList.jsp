@@ -63,7 +63,7 @@ MemInfoDTO mdto = (MemInfoDTO)session.getAttribute((String)session.getAttribute(
             %>
                <tr>
                <th>Tutor name | </th>
-               <td><a href="tutorInfo.jsp?midx=<%=mdto.getMidx()%>"><%=mdto.getMname() %></a></td>
+               <td><a href="tutorInfo.jsp?midx=<%=dto.getMidx()%>"><%=dto.getMname() %></a></td>
                <th>Location | </th>
                <td><%=dto.getMaddr() %></td>
                <th>TOEIC | </th>

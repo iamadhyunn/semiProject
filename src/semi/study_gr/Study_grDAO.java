@@ -30,9 +30,6 @@ public class Study_grDAO {
 	            String scontent=rs.getString("scontent");
 	            String tutorname=rs.getString("tutorname");
 	            int std_limit=rs.getInt("std_limit");
-	            int toeic_limit=rs.getInt("toeic_limit");
-	            int toss_limit=rs.getInt("toss_limit");
-	            int toefl_limit=rs.getInt("toefl_limit");
 
 	            Study_grDTO dto = new Study_grDTO(midx, sidx, stds, s_gr_name, sdate, edate, sch_date, sch_time, stdgr_status, scontent, tutorname, std_limit);
 	            arr.add(dto);
@@ -88,7 +85,7 @@ public class Study_grDAO {
 		}
 	}
 	//KS
-	   /**½ºÅÍµğ ±×·ì ½ÅÃ» ³»¿ë µî·Ï*/
+	   /**ï¿½ï¿½ï¿½Íµï¿½ ï¿½×·ï¿½ ï¿½ï¿½Ã» ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½*/
 	   public int joinStudyGr(Study_grDTO dto) {
 		   try {
 			   conn=semi.db.SemiDB.getCon();
@@ -115,4 +112,41 @@ public class Study_grDAO {
 	            }
 		}
 	   }
+	   //ksìŠ¤í„°ë”” ë¦¬ìŠ¤íŠ¸ì— íŠœí„°ì˜ ìŠ¤í„°ë”” ë‚´ì—­ ì¶œë ¥
+		public ArrayList<Study_grDTO> myStudyList(int midx){
+		      try {
+		         conn=semi.db.SemiDB.getCon();
+		         String sql="select * from study_gr where midx=?";
+		         ps=conn.prepareStatement(sql);
+		         ps.setInt(1, midx);
+		         rs=ps.executeQuery();
+		         ArrayList<Study_grDTO> arr = new ArrayList<Study_grDTO>();
+		         while(rs.next()) {
+		            int sidx=rs.getInt("sidx");
+		            String stds=rs.getString("stds");
+		            String s_gr_name=rs.getString("s_gr_name");
+		            String sdate=rs.getString("sdate");
+		            String edate=rs.getString("edate");
+		            String sch_date=rs.getString("sch_date");
+		            String sch_time=rs.getString("sch_time");
+		            int stdgr_status=rs.getInt("stdgr_status");
+		            String scontent=rs.getString("scontent");
+		            String tutorname=rs.getString("tutorname");
+		            int std_limit=rs.getInt("std_limit");
+
+		            Study_grDTO dto = new Study_grDTO(midx, sidx, stds, s_gr_name, sdate, edate, sch_date, sch_time, stdgr_status, scontent, tutorname, std_limit);
+		            arr.add(dto);
+		         }
+		         return arr;
+		      } catch (Exception e) {
+		         e.printStackTrace();
+		         return null;
+		      }finally {
+		         try {
+		            if(rs!=null)rs.close();
+		            if(ps!=null)ps.close();
+		            if(conn!=null)conn.close();
+		         } catch (Exception e2) {}
+		      }
+		   }
 }
