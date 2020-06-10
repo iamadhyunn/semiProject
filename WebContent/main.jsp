@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<body>
+<body>test
 <%@include file="/header.jsp" %>
 <a href="/semi/mypage/myPage.jsp">마이페이지</a>
 <a href="/semi/findstudy/tutorList.jsp">튜터찾기</a>
