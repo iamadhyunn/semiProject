@@ -11,7 +11,7 @@
 <%@include file="/header.jsp" %>
 <a href="/semi/mypage/myPage.jsp">마이페이지</a>
 <a href="/semi/findstudy/tutorList.jsp">튜터찾기</a>
-<a href="/semi/mystudy/myStudyList.jsp">내 스터디룸깃테스2333by ks yong</a>
+<a href="/semi/mystudy/myStudyList.jsp">내 스터디룸깃테스2333by ks yong2222</a>
 <%@include file="/footer.jsp" %>
 </body>
 </html>
